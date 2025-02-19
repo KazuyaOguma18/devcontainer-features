@@ -8,7 +8,9 @@
           "type": "string",
           "proposals": [
               "foxy",
+              "galactic",
               "humble",
+              "iron",
               "jazzy"
             ],
           "default": "jazzy",
