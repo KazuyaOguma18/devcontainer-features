@@ -4,8 +4,6 @@ This repository contains a Feature - `ROS 2`.
 
 ## `ROS 2`
 
-Running `hello` inside the built container will print the greeting provided to it via its `greeting` option.
-
 ```jsonc
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
