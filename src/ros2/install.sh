@@ -1,5 +1,16 @@
 #!/bin/sh
-set -e
+set -e           # Exit if any command has non-zero exit code (return non-zero)
+set -u           # Referencing undefined variables is an error
+set -o pipefail  # Exit if any command in a pipeline fails (return last failed command's code)
+
+# shellcheck source=/dev/null
+DISTRO_ID="$(. /etc/os-release && echo "${ID}")"
+readonly DISTRO_ID
+
+if [[ "${DISTRO_ID,,}" != "ubuntu" ]]; then
+  echo "install.sh: ubuntu distribution required: detected '${DISTRO_ID}'"
+  exit 1
+fi
 
 echo "Activating feature 'ROS2'"
 
@@ -31,9 +42,5 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 apt-get update
 apt-get install --yes --quiet --no-install-recommends ros-${DISTRO}-${PACKAGE} ros-dev-tools python3-argcomplete
 
-echo "source /opt/ros/${DISTRO}/setup.bash" >> $_REMOTE_USER_HOME/.bashrc
-
 # We should clean up after ourselves
 rm -rf /var/lib/apt/lists/*
-
-export DEBIAN_FRONTEND=
