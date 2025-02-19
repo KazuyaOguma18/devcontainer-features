@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 set -e           # Exit if any command has non-zero exit code (return non-zero)
 set -u           # Referencing undefined variables is an error
 set -o pipefail  # Exit if any command in a pipeline fails (return last failed command's code)
