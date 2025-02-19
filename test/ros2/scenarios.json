@@ -1,0 +1,29 @@
+{
+  "foxy": {
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-20.04",
+    "features": {
+        "ros2": {
+            "distro": "foxy"
+        }
+    },
+    "remoteUser": "root"
+  },
+  "humble": {
+      "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+      "features": {
+          "ros2": {
+              "distro": "humble"
+          }
+      },
+      "remoteUser": "root"
+  },
+  "jazzy": {
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+    "features": {
+        "ros2": {
+            "distro": "jazzy"
+        }
+    },
+    "remoteUser": "root"
+  }
+}
